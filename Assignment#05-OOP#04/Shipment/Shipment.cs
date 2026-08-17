@@ -60,7 +60,7 @@ namespace Assignment_05_OOP_04.Shipment
             set { _Destination = value; }
         }
 
-        public virtual double EstimatedCost { get { return (double)_DeliveryFee + (_Weight * 5); } }
+        public abstract decimal EstimatedCost { get; }
 
         public Shipment(string trackingCode)
         {
@@ -86,20 +86,7 @@ namespace Assignment_05_OOP_04.Shipment
                 DeliveryFee = newFee;
         }
 
-        public virtual void PrintShipment()
-        {
-            Console.WriteLine('\n');
-            Console.WriteLine("---AllShipments---");
-
-            Console.WriteLine($"TrackingCode: {TrackingCode}");
-            Console.WriteLine($"Description: {Description}");
-            Console.WriteLine($"Weight: {Weight}");
-            Console.WriteLine($"DeliveryFee: {DeliveryFee} EGP");
-            Console.WriteLine($"Destination: {Destination.GetFullAddress()}");
-            Console.WriteLine($"Cost: {EstimatedCost} EGP");
-
-            Console.WriteLine("--------------------");
-        }
+        public abstract void PrintShipment();
 
         public void UpdateWeight(double weight)
         {
