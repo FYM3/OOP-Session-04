@@ -1,4 +1,5 @@
 ﻿using Assignment_05_OOP_04.Driver;
+using Assignment_05_OOP_04.IInsurable;
 using Assignment_05_OOP_04.ITrackable;
 using Assignment_05_OOP_04.Shipment;
 using System;
@@ -98,6 +99,18 @@ namespace Assignment_05_OOP_02.Delivery_Center
                 {
                     ITrackable trackableShipment = (ITrackable)shipment;
                     Console.WriteLine(trackableShipment.GetTrackingStatus());
+                }
+            }
+        }
+
+        public void PrintCalculateInsurance()
+        {
+            foreach (Shipment shipment in _shipment)
+            {
+                if (shipment != null)
+                {
+                    IInsurable insurable = (IInsurable)shipment;
+                    Console.WriteLine(insurable.CalculateInsurance());
                 }
             }
         }
