@@ -2,11 +2,13 @@
 using System.Text;
 using System.Collections.Generic;
 using Assignment_05_OOP_04.Shipment;
+using Assignment_05_OOP_04.ITrackable;
 using Assignment_05_OOP_02.Delivery_Address;
+
 
 namespace Assignment_05_OOP_02.Express_Shipment
 {
-    public class ExpressShipment : Shipment
+    public class ExpressShipment : Shipment, ITrackable
     {
         private decimal _ExtraFee;
 
@@ -40,6 +42,11 @@ namespace Assignment_05_OOP_02.Express_Shipment
             Console.WriteLine($"Cost: {EstimatedCost} EGP");
             Console.WriteLine($"Extra Fee: {ExtraFee}");
             Console.WriteLine("--------------------");
+        }
+
+        public string GetTrackingStatus()
+        {
+            return $"Shipment {TrackingCode} is Out for Delivery.";
         }
     }
 }

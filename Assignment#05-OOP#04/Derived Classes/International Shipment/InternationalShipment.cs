@@ -2,12 +2,13 @@
 using System.Text;
 using System.Collections.Generic;
 using Assignment_05_OOP_04.Shipment;
+using Assignment_05_OOP_04.ITrackable;
 using Assignment_05_OOP_02.Delivery_Address;
 
 
 namespace Assignment_05_OOP_02.International_Shipment
 {
-    public class InternationalShipment : Shipment
+    public class InternationalShipment : Shipment, ITrackable
     {
         private decimal _CustomsFee;
         private string _DestinationCountry = string.Empty;
@@ -40,8 +41,8 @@ namespace Assignment_05_OOP_02.International_Shipment
             DestinationCountry = destinationCountry;
             CustomsFee = customsFee;
         }
-
-public virtual void GenerateCustomsReport()
+        
+        public virtual void GenerateCustomsReport()
         {
             Console.WriteLine("Priority International Customs Report");
         }
@@ -59,6 +60,11 @@ public virtual void GenerateCustomsReport()
             Console.WriteLine($"Customs Fee: {CustomsFee}");
             Console.WriteLine($"Destination Country: {DestinationCountry}");
             Console.WriteLine("--------------------");
+        }
+
+        public string GetTrackingStatus()
+        {
+            return $"Shipment {TrackingCode} has been Delivered.";
         }
     }
 }

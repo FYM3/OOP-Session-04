@@ -2,13 +2,14 @@
 using System.Text;
 using System.Collections.Generic;
 using Assignment_05_OOP_04.Shipment;
+using Assignment_05_OOP_04.ITrackable;
 using Assignment_05_OOP_02.Delivery_Address;
+
 
 namespace Assignment_05_OOP_02.Standard_Shipment
 {
-    public class StandardShipment : Shipment
+    public class StandardShipment : Shipment, ITrackable
     {
-
 
         public StandardShipment(string trackingCode, string description, double weight, decimal deliveryFee, DeliveryAddress destination)
             : base(trackingCode, description, weight, deliveryFee, destination)
@@ -29,6 +30,11 @@ namespace Assignment_05_OOP_02.Standard_Shipment
             Console.WriteLine($"Destination: {Destination.GetFullAddress()}");
             Console.WriteLine($"Cost: {EstimatedCost} EGP");
             Console.WriteLine("--------------------");
+        }
+
+        public string GetTrackingStatus()
+        {
+            return $"Shipment {TrackingCode} is Ready.";
         }
     }
 }
