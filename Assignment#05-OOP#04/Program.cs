@@ -1,5 +1,4 @@
-﻿
-namespace Assignment_05_OOP_04
+﻿namespace Assignment_05_OOP_04
 {
     internal class Program
     {
@@ -44,4 +43,3 @@ namespace Assignment_05_OOP_04
         }
     }
 }
-

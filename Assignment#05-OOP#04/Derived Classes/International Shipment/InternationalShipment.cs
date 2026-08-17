@@ -2,13 +2,14 @@
 using System.Text;
 using System.Collections.Generic;
 using Assignment_05_OOP_04.Shipment;
+using Assignment_05_OOP_04.IInsurable;
 using Assignment_05_OOP_04.ITrackable;
 using Assignment_05_OOP_02.Delivery_Address;
 
 
 namespace Assignment_05_OOP_02.International_Shipment
 {
-    public class InternationalShipment : Shipment, ITrackable
+    public class InternationalShipment : Shipment, ITrackable, IInsurable
     {
         private decimal _CustomsFee;
         private string _DestinationCountry = string.Empty;
@@ -65,6 +66,11 @@ namespace Assignment_05_OOP_02.International_Shipment
         public string GetTrackingStatus()
         {
             return $"Shipment {TrackingCode} has been Delivered.";
+        }
+
+        public decimal CalculateInsurance()
+        {
+            return EstimatedCost * 0.12M;
         }
     }
 }

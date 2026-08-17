@@ -2,13 +2,14 @@
 using System.Text;
 using System.Collections.Generic;
 using Assignment_05_OOP_04.Shipment;
+using Assignment_05_OOP_04.IInsurable;
 using Assignment_05_OOP_04.ITrackable;
 using Assignment_05_OOP_02.Delivery_Address;
 
 
 namespace Assignment_05_OOP_02.Express_Shipment
 {
-    public class ExpressShipment : Shipment, ITrackable
+    public class ExpressShipment : Shipment, ITrackable, IInsurable
     {
         private decimal _ExtraFee;
 
@@ -47,6 +48,11 @@ namespace Assignment_05_OOP_02.Express_Shipment
         public string GetTrackingStatus()
         {
             return $"Shipment {TrackingCode} is Out for Delivery.";
+        }
+
+        public decimal CalculateInsurance()
+        {
+            return EstimatedCost * 0.08M;
         }
     }
 }

@@ -1,14 +1,16 @@
 ﻿using System;
 using System.Text;
+using Assignment_05_OOP_04;
 using System.Collections.Generic;
 using Assignment_05_OOP_04.Shipment;
+using Assignment_05_OOP_04.IInsurable;
 using Assignment_05_OOP_04.ITrackable;
 using Assignment_05_OOP_02.Delivery_Address;
 
 
 namespace Assignment_05_OOP_02.Standard_Shipment
 {
-    public class StandardShipment : Shipment, ITrackable
+    public class StandardShipment : Shipment, ITrackable, IInsurable
     {
 
         public StandardShipment(string trackingCode, string description, double weight, decimal deliveryFee, DeliveryAddress destination)
@@ -35,6 +37,11 @@ namespace Assignment_05_OOP_02.Standard_Shipment
         public string GetTrackingStatus()
         {
             return $"Shipment {TrackingCode} is Ready.";
+        }
+
+        public decimal CalculateInsurance()
+        {
+            return EstimatedCost * 0.05M;
         }
     }
 }
