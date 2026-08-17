@@ -98,6 +98,8 @@ namespace Assignment_05_OOP_04.Shipment
             Weight = PackingWeight + weight;
         }
 
-
+        public class Shipment
+        {
+        }
     }
 }
